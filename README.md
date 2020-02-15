@@ -2,6 +2,8 @@
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
+[![PyPI version](https://badge.fury.io/py/tf-notification-callback.svg)](https://badge.fury.io/py/tf-notification-callback)
+
 A Tensorflow/Keras callback which sends information about your model training, on various messaging platforms.
 
 ## Installation
@@ -21,11 +23,11 @@ Import the required module and add it to the list callbacks while training your 
 ```python
 >>> from tf_notification_callback import TelegramCallback
 >>> telegram_callback = TelegramCallback('<BotToken>',
-                                     '<ChatID>',
-	                             'CNN Model',
-	                             ['loss', 'val_loss'],
-	                             ['accuracy', 'val_accuracy'],
-	                             True)
+                                         '<ChatID>',
+	                                     'CNN Model',
+	                                     ['loss', 'val_loss'],
+	                                     ['accuracy', 'val_accuracy'],
+	                                     True)
 >>> model.fit(x_train, y_train,
           batch_size=32,
           epochs=10,
