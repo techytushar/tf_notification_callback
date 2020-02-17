@@ -24,15 +24,15 @@ Import the required module and add it to the list callbacks while training your 
 >>> from tf_notification_callback import TelegramCallback
 >>> telegram_callback = TelegramCallback('<BotToken>',
                                          '<ChatID>',
-	                                     'CNN Model',
-	                                     ['loss', 'val_loss'],
-	                                     ['accuracy', 'val_accuracy'],
-	                                     True)
+	                                 'CNN Model',
+	                                 ['loss', 'val_loss'],
+	                                 ['accuracy', 'val_accuracy'],
+	                                 True)
 >>> model.fit(x_train, y_train,
-          batch_size=32,
-          epochs=10,
-          validation_data=(x_test, y_test),
-          callbacks=[telegram_callback])
+              batch_size=32,
+              epochs=10,
+              validation_data=(x_test, y_test),
+              callbacks=[telegram_callback])
 ```
 
 ### Telegram
@@ -54,12 +54,12 @@ TelegramCallback(bot_token=None, chat_id=None, modelName='model', loss_metrics=[
 
 **Arguments:**
 
-`bot_token` : unique token of Telegram bot `{str}`
-`chat_id` : Telegram chat id you want to send message to `{str}`
-`modelName` : name of your model `{str}`
-`loss_metrics` : loss metrics you want in the loss graph `{list of strings}`
-`acc_metrics` : accuracy metrics you want in the accuracy graphs `{list of strings}`
-`getSummary` : Do you want message for each epoch (False) or a single message containing information about all epochs (True). `{bool}`
+* `bot_token` : unique token of Telegram bot `{str}`
+* `chat_id` : Telegram chat id you want to send message to `{str}`
+* `modelName` : name of your model `{str}`
+* `loss_metrics` : loss metrics you want in the loss graph `{list of strings}`
+* `acc_metrics` : accuracy metrics you want in the accuracy graphs `{list of strings}`
+* `getSummary` : Do you want message for each epoch (False) or a single message containing information about all epochs (True). `{bool}`
 
 ### Slack
 
@@ -67,14 +67,20 @@ TelegramCallback(bot_token=None, chat_id=None, modelName='model', loss_metrics=[
 2. Create a new channel
 3. Search for the **Incoming Webhooks** in the Apps and install it.
 4. Copy the **Webhook URL**
-5. Import the `SlackCallback()` class. It takes in the following arguments
+5. Use the `SlackCallback()` class.
 
-`webhookURL` : unique webhook URL of the app `{str}`
-`channel` :  channel name or username you want to send message to `{str}`
-`modelName` : name of your model `{str}`
-`loss_metrics` : loss metrics you want in the loss graph `{list of strings}`
-`acc_metrics` : accuracy metrics you want in the accuracy graph `{list of strings}`
-`getSummary` : Do you want message for each epoch (False) or a single message containing information about all epochs (True). `{bool}`
+```python
+SlackCallback(bot_token=None, chat_id=None, modelName='model', loss_metrics=['loss'], acc_metrics=[], getSummary=False):
+```
+
+**Arguments:**
+
+* `webhookURL` : unique webhook URL of the app `{str}`
+* `channel` :  channel name or username you want to send message to `{str}`
+* `modelName` : name of your model `{str}`
+* `loss_metrics` : loss metrics you want in the loss graph `{list of strings}`
+* `acc_metrics` : accuracy metrics you want in the accuracy graph `{list of strings}`
+* `getSummary` : Do you want message for each epoch (False) or a single message containing information about all epochs (True). `{bool}`
 
 *Sending images in Slack is not supported currently.*
 
